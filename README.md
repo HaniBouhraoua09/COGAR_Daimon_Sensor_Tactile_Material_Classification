@@ -65,7 +65,7 @@ At the conclusion of the project, the repository will contain:
 3. **Push:** Document progress and upload code for instructor review (@giangalv).
 4. **Present:** Final demonstration and report delivery in June.
 
-# Interface for Daimon tactile sensor
+# Interface for Daimon tactile sensor (DM-Tac WS) Vision-based Tactile Sensor
 
 # How to use
 
