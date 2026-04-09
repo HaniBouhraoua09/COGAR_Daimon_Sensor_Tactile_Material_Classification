@@ -64,3 +64,17 @@ At the conclusion of the project, the repository will contain:
 2. **Implement:** Develop fusion logic and ROS 2 nodes in the local environment.
 3. **Push:** Document progress and upload code for instructor review (@giangalv).
 4. **Present:** Final demonstration and report delivery in June.
+
+# Interface for Daimon tactile sensor
+
+# How to use
+
+## Work with Python 3.8/3.9/3.10/3.11. Make sure you have cuda toolkit 12.x installed, otherwise you might need to modify setup.py
+
+## Install the package
+    pip install .
+
+## Plug in the sensor
+
+## Run
+    python main.py
