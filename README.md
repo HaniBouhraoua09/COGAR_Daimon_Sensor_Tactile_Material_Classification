@@ -78,3 +78,6 @@ At the conclusion of the project, the repository will contain:
 
 ## Run
     python main.py
+
+# Baxter:
+Fork and use -> https://github.com/giangalv/baxter_rosbridge_adapter, follow the README. 
