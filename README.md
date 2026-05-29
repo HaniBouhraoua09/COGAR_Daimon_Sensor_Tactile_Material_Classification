@@ -78,7 +78,27 @@ the small dataset.
 
 ---
 
-## 5. How to Use
+## 5. Dataset
+
+The full dataset I collected — the recorded trials for all materials — is hosted
+on Google Drive (kept out of the repo because of the size of the `.npy` trials):
+
+**→ [Download dataset](https://drive.google.com/drive/folders/1nCXCQ-5vT5xhaLr_t-zB0wl5gqR_cV6N?usp=drive_link)**
+
+After downloading, place the `dataset/` folder in the repository root so the
+structure looks like this:
+
+    dataset/
+      material=apple/   trial_000/  trial_001/  ...
+      material=orange/  trial_000/  trial_001/  ...
+      ...
+      material=kiwi/  trial_000/  trial_001/  ...
+
+`train.py` expects the `dataset/` folder to exist locally.
+
+---
+
+## 6. How to Use
 
 ### Setup
 Works with Python 3.8–3.11. Make sure CUDA toolkit 12.x is installed (otherwise
@@ -93,7 +113,7 @@ Plug in the Daimon sensor before running anything that talks to it (`record.py`,
     record.py  →  dataset/  →  train.py  →  checkpoints/  →  evaluate.py / live_predict.py
                               visualize.py reads dataset/ for inspection
 
-### 5.1 Record data
+### 6.1 Record data
 Collect trials with the sensor:
 
     python record.py
@@ -106,7 +126,7 @@ files (rawimg, depth, deformation, shear).
 > **Always press `r` before each trial** — without a reset, depth/deformation/shear
 > save as zeros.
 
-### 5.2 Visualize / inspect a trial
+### 6.2 Visualize / inspect a trial
 Play back a recorded trial with fixed scales and exact numbers:
 
     python visualize.py                 # latest trial
@@ -114,13 +134,13 @@ Play back a recorded trial with fixed scales and exact numbers:
     python visualize.py --compare kiwi  # peak frame of every kiwi trial
     python visualize.py --stats kiwi    # numeric summary per trial
 
-### 5.3 How the data loads
+### 6.3 How the data loads
 `dataset_loader.py` builds the train/val/test splits **at the trial level** (no
 frame leakage) and, for each trial, feeds the models the single
 **peak-deformation frame** of all four modalities. You don't run it directly —
 `train.py` and `evaluate.py` import it.
 
-### 5.4 Train
+### 6.4 Train
 Train one model, or all seven (4 baselines + early/late/hybrid fusion):
 
     python train.py --model early_fusion
@@ -128,7 +148,7 @@ Train one model, or all seven (4 baselines + early/late/hybrid fusion):
 
 Best checkpoint (by validation accuracy) is saved to `checkpoints/<model>_best.pt`.
 
-### 5.5 Evaluate
+### 6.5 Evaluate
 Score every trained model on the test set and generate plots:
 
     python evaluate.py
@@ -136,7 +156,7 @@ Score every trained model on the test set and generate plots:
 Outputs confusion matrices, a comparison bar chart, and `comparison.csv` in
 `results/`.
 
-### 5.6 Live prediction
+### 6.6 Live prediction
 Real-time classification from the sensor using all trained models:
 
     python live_predict.py
@@ -147,6 +167,6 @@ you trained (3-class vs 6-class).
 
 ---
 
-## 6. Baxter
+## 7. Baxter
 Fork and use → https://github.com/giangalv/baxter_rosbridge_adapter, then follow
 its README.
