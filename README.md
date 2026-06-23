@@ -29,10 +29,10 @@ fusion.
 ## 2. Software Stack
 The development environment is built on **Ubuntu 22.04 (Linux)** using:
 
-* **Core:** Python, ROS 2 (for sensor integration).
+* **Core:** Python.
 * **Data Processing:** NumPy, Pandas, OpenCV.
-* **AI & Machine Learning:** PyTorch or TensorFlow, scikit-learn.
-* **Experimentation & Visualization:** Jupyter Notebook, Matplotlib, Seaborn.
+* **AI & Machine Learning:** PyTorch and scikit-learn.
+* **Experimentation & Visualization:** Matplotlib, Seaborn.
 
 ---
 
@@ -54,7 +54,7 @@ fusion) on two tasks. Trained models are saved in the `checkpoints_*` folders an
 the plots/metrics in the matching `results_*` folders:
 
 * **3 classes, 20 epochs** (apple, orange, kiwi) — the easy task.
-* **6 classes, 20 / 30 / 40 epochs** (+ banana, nectarine, peach) — the harder
+* **6 classes, 20 / 30 epochs** (+ banana, nectarine, peach) — the harder
   task, trained for an increasing number of epochs.
 
 Each `results_*` folder contains the confusion matrices, the model-comparison
@@ -64,7 +64,7 @@ bar chart, and a CSV of test accuracy and macro-F1 per model.
 * Fusion beats the best single modality in both tasks.
 * On the easy 3-class task, **late fusion** was best (~96%).
 * On the hard 6-class task, **early and hybrid fusion** were best (~84% / ~82%)
-  and stayed stable across the 20/30/40-epoch runs, while **late fusion dropped
+  and stayed stable across the 20/30-epoch runs, while **late fusion dropped
   to the weakest fusion method** (~69%).
 * **Shear** was consistently the weakest modality; the **raw image** the
   strongest single one.
@@ -83,7 +83,7 @@ the small dataset.
 The full dataset I collected — the recorded trials for all materials — is hosted
 on Google Drive (kept out of the repo because of the size of the `.npy` trials):
 
-**→ [Download dataset](https://drive.google.com/drive/folders/1nCXCQ-5vT5xhaLr_t-zB0wl5gqR_cV6N?usp=drive_link)**
+**→ <a href="https://drive.google.com/drive/folders/1nCXCQ-5vT5xhaLr_t-zB0wl5gqR_cV6N?usp=drive_link" target="_blank">Download dataset</a>**
 
 After downloading, place the `dataset/` folder in the repository root so the
 structure looks like this:
