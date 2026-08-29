@@ -4,7 +4,7 @@
 A multi-modal material classification system for a vision-based tactile sensor
 (Daimon DM-Tac WS), combining four tactile modalities — **depth, image,
 deformation, and shear** — to identify materials more robustly than any single
-modality alone.
+modality alone. 
 
 ## Student Information
 * **Name:** Hani Bouhraoua
